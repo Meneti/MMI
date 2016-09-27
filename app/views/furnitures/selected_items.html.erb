@@ -1,0 +1,13 @@
+<h2> List of saved items: </h2>
+
+<ul>
+<% if @furniture_list%>
+  <% @furniture_list.each do |item| %>
+    <li>
+      <%= link_to item.category, furniture_path(item) %>
+
+      - $<%= item.price %>
+    </li>
+  <% end %>
+<% end%>
+</ul>

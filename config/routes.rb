@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :furnitures
 
  get "/furnitures/category/:category" => "furnitures#category" 
+ get "/furnitures/selected_items/show" => "furnitures#selected_items" 
 end

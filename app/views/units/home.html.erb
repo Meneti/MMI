@@ -1,32 +1,33 @@
-<h3>Enter your new Address</h3>
 
+<div class = "Home_Page"> 
 
-<form action="/units" method="GET">
-  <div>
-    <input type="text" name="street_name" id="street_name" placeholder="street name"required>
-  </div>
+      <div class = "Header"> <h3>Enter your new Address</h3> </div>
 
- <div>
-    <input type="number" name="street_number" id="street_number" placeholder="street number"required>
-  </div>
+      <div class = "Home_Form">
 
- 
- <div>
-    <input type="text" name="city" id="city" placeholder="City"required>
-  </div>
+          <form action="/units" method="GET">
+          <div>
+          <input type="text" name="street_name" id="street_name" placeholder="street name"required>
+          </div>
+          <div>
+          <input type="number" name="street_number" id="street_number" placeholder="street number"required>
+          </div>
+          <div>
+          <input type="text" name="city" id="city" placeholder="City"required>
+          </div>
+          <div>
+          <input type="text" name="state" id="state" placeholder="State"required>
+          </div>
+          <div>
+          <input type="text" name="zip_code" id="zip_code" placeholder="Zip"required>
+          </div>
 
-   <div>
-    <input type="text" name="state" id="state" placeholder="State"required>
-  </div>
+      </div>
 
-    <div>
-    <input type="text" name="zip_code" id="zip_code" placeholder="Zip"required>
-  </div>
+        
+          <button class = "Search_Button" type="submit">Search Floorplan</button>
+           <!--  <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>"> -->
+      </form>
 
-
-  
-    <button type="submit">Search Floorplan</button>
-     <!--  <input type="hidden" name="authenticity_token"
-      value="<%= form_authenticity_token %>"> -->
-</form>
-
+</div>
