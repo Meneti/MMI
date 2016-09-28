@@ -9,6 +9,13 @@
   </head>
 
   <body>
+  	<% if session[:total_price] %>
+	  	<div>
+	  		<p>Total: 
+	  		  <%= session[:total_price] %>
+	  	    </p>
+	  	</div>
+	<% end %>
     <%= yield %>
   </body>
 </html>

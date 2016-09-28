@@ -24,25 +24,39 @@ class FurnituresController < ApplicationController
 		the_id = params[:furniture][:furniture_id]
 		(session[:saved_items] ||= []) << the_id
 		the_furniture = Furniture.find(the_id).category
+
+		furniture_list = self.all_furniture
+
+		total_price=0
+		furniture_list.each do |item|
+  			total_price+= item.price
+		end
+
+		session[:total_price] = total_price
+
 		redirect_to "/furnitures/category/#{the_furniture}"
 	end
 
 	def selected_items
-		@selected_items = session[:saved_items]
-		@furniture_list = []
-		if @selected_items
-		@selected_items.each do |x|
-			@furniture_list << Furniture.find(x.to_i)
-		end
-		end
-  		total_price= 0
-  		@selected_items.each do |item|
-  		@total_price+= item.price
-		end
+		@furniture_list = self.all_furniture
+
+  		# total_price= 0
+  # 		
 		# furniture = Furniture.find(params[:furniture_id])
 		# @selected_items.push(furniture)
 		# @selected_items.save
 		render :selected_items
+	end
+
+	def all_furniture
+		@selected_items = session[:saved_items]
+		furniture_list = []
+		if @selected_items
+			@selected_items.each do |x|
+				furniture_list << Furniture.find(x.to_i)
+			end
+		end
+		return furniture_list
 	end
 
 

@@ -20,51 +20,32 @@
 </style>
 
 <div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> <br>
-
- 
 <p class= "Selected_items_scaled"> Drag and Drop the items you selected </p>
 
 <div id= "div1">
-<% if @saved_items.length != nil%>
-<% @saved_items.each_with_index do |x, index| %> 
-
-
-
-
-<div id="#{index}" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src=<%=x.scaled_image%> draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" >
-</div>
-
-
-
-
-
-<% end %>
+	<% if @saved_items.length != nil%>
+		<% @saved_items.each_with_index do |x, index| %> 
+			<div id="#{index}" ondrop="drop(event)" ondragover="allowDrop(event)">
+			  <img src="<%=x.scaled_image%>" draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" >
+			</div>
+		<% end %>
 <%end%>
 </div>
 
-<form method="" action="">
+<!-- <form method="" action=""> -->
 	<!--
 	<input type="hidden" name="coordinates[][furniture_id]" value="5">
 	<input type="hidden" name="coordinates[][top]" value="127">
 	<input type="hidden" name="coordinates[][left]" value="458">
 	-->
-
+<!-- 
 	<button> Save </button>
-</form>
+</form> -->
 
 
 <script>
 
-// var blah = {
-// 	coordinates: [
-// 		{ furniture_id: 5, top: 127, left: 458 },
-// 	]
-// }
 
-// $.ajax({
-// 	data: blah
-// })
 
 
 function allowDrop(ev) {
@@ -78,11 +59,29 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("image");
-    var couch = document.getElementById(data);
-    ev.target.appendChild(couch);
+    var furniture = document.getElementById(data);
+    ev.target.appendChild(furniture);
 
-    couch.style.top = ev.clientY + "px";
-    couch.style.left = ev.clientX + "px";
-    console.log(couch);
+    furniture.style.top = ev.clientY + "px";
+    furniture.style.left = ev.clientX + "px";
+    console.log(furniture);
 }
+
+// var saved_coordinates = {
+// 	coordinates: [
+// 		{ furniture_id: <%= @furniture_id %>, top: ev.clientY + "px", left: ev.clientX + "px" },
+// 	]
+// }
+
+// $.ajax({
+// 	data: saved_coordinates,
+// 	method: "GET",
+// 	url: ,
+// 	success: saveLayout
+// })
+
+// function saveLayout() {
+// 	console.log("Layout Saved")
+
+// }
 </script>
