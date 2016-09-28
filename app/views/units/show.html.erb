@@ -1,22 +1,88 @@
-<h3>Here is your floorplan. Choose the furniture categories to start planning your layout:</h3>
-
+<p class= "Title"> Here is your floorplan. Choose the furniture categories to start planning your layout:</p>
 
 <div class= "Categories">
-<button><a href="/furnitures/category/couch">Couch</a></button>
-<button><a href="/furnitures/category/armchair">Armchair</a></button>
-<button><a href="/furnitures/category/center-table">Side Table</a></button>
-<button><a href="/furnitures/category/dinner-table">Dinner Table</a></button>
-<button><a href="/furnitures/category/chair">Chair</a></button>
-<button><a href="/furnitures/category/bed">Bed</a></button>
-<ul>
+	<button><a href="/furnitures/category/couch">Couch</a></button>
+	<button><a href="/furnitures/category/armchair">Armchair</a></button>
+	<button><a href="/furnitures/category/center-table">Side Table</a></button>
+	<button><a href="/furnitures/category/dinner-table">Dinner Table</a></button>
+	<button><a href="/furnitures/category/chair">Chair</a></button>
+	<button><a href="/furnitures/category/bed">Bed</a></button>
+</div>
 
-	
+<style>
+	#div2 {
+		background-image: url("<%= @unit.floorplan %>");
+	}
 
-	
-		 <img src= <%= @unit.floorplan %> >
+	.draggable-thing {
+		position: absolute;
+	}
+</style>
 
-</ul>
+<div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> <br>
 
+ 
+<p class= "Selected_items_scaled"> Drag and Drop the items you selected </p>
+
+<div id= "div1">
+<% if @saved_items.length != nil%>
+<% @saved_items.each_with_index do |x, index| %> 
+
+
+
+
+<div id="#{index}" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src=<%=x.scaled_image%> draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" >
 </div>
 
 
+
+
+
+<% end %>
+<%end%>
+</div>
+
+<form method="" action="">
+	<!--
+	<input type="hidden" name="coordinates[][furniture_id]" value="5">
+	<input type="hidden" name="coordinates[][top]" value="127">
+	<input type="hidden" name="coordinates[][left]" value="458">
+	-->
+
+	<button> Save </button>
+</form>
+
+
+<script>
+
+// var blah = {
+// 	coordinates: [
+// 		{ furniture_id: 5, top: 127, left: 458 },
+// 	]
+// }
+
+// $.ajax({
+// 	data: blah
+// })
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("image", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("image");
+    var couch = document.getElementById(data);
+    ev.target.appendChild(couch);
+
+    couch.style.top = ev.clientY + "px";
+    couch.style.left = ev.clientX + "px";
+    console.log(couch);
+}
+</script>

@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-unit1 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 2003, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1_ClaughtonIslandDrive2003.001.jpeg")
+unit1 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 2003, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
 
 
 
-furniture1 = Furniture.create!(category: "couch", lenght: 90.5, width: 35.785 , store: "Ikea", price: 449, color: "Beige", store_image: "/images/Sofa2_friheten-sleeper-sofa-beige__0325767_PE523058_S4.JPG", scaled_image: "/images/Sofa2_floorplan_image_Friheiten.001.jpeg")
+
+furniture1 = Furniture.create!(category: "couch", lenght: 90.5, width: 35.785 , store: "Ikea", price: 449, color: "Beige", store_image: "/images/Sofa2_friheten-sleeper-sofa-beige__0325767_PE523058_S4.JPG", scaled_image: "/images/Sofa2_Friheiten_Beige_Ikea_scaledimage.png")
 furniture2 = Furniture.create!(category: "couch", lenght: 53.875, width: 30.75 , store: "Ikea", price: 179, color: "Grey", store_image: "/images/Sofa1_solsta-sleeper-sofa-gray__45647_PE141902_S4.JPG")
 
 furniture3 = Furniture.create!(category: "center-table", lenght: 46.5, width: 29.5 , store: "Ikea", price: 139, color: "Black", store_image: "/images/Coffee_Table1_hemnes-coffee-table-brown__0104030_PE250678_S4.JPG")

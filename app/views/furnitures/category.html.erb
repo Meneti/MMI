@@ -1,5 +1,17 @@
 <h3>Select furniture: </h3>
 
+<a href="/units/<%=@unit.id%>">See my Floorplan</a>
+
+
+<div class= "Categories">
+<button><a href="/furnitures/category/couch">Couch</a></button>
+<button><a href="/furnitures/category/armchair">Armchair</a></button>
+<button><a href="/furnitures/category/center-table">Side Table</a></button>
+<button><a href="/furnitures/category/dinner-table">Dinner Table</a></button>
+<button><a href="/furnitures/category/chair">Chair</a></button>
+<button><a href="/furnitures/category/bed">Bed</a></button>
+<ul>
+
 <form class= "Filter">
 		<p>Filter by Store :</p>
 		<label for="store"> Ikea </label>
@@ -14,19 +26,22 @@
         <button> Filter </button>
 </form>
 
-<!-- <div class= "Filter">
+<form class= "Filter">
+
 		<p>Filter by Color :</p>
-		<label for="store"> Black </label>
+		<label for="color"> Black </label>
         <input type="checkbox" name="color[]" value="Black">
 
-        <label for="store"> Grey </label>
+        <label for="color"> Grey </label>
         <input type="checkbox" name="color[]" value="Grey">
 
-        <label for="store"> Beige </label>
+        <label for="color"> Beige </label>
         <input type="checkbox" name="color[]" value="Beige">
-</div>
+        
+        <button> Filter </button>
+</form>
 
-<div class= "Filter">
+<!-- <div class= "Filter">
 		<p>Filter by Price :</p>
 		
 </div> -->

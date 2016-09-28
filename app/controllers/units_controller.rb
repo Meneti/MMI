@@ -3,6 +3,14 @@ class UnitsController < ApplicationController
 	end
 	def show
 		@unit = Unit.find_by(id: params[:id])
+		 session[:my_floorplan] ||= @unit.id
+		 (session[:all_floorplans] ||= []) << @unit.id
+		 @saved_items = []
+		 if session[:saved_items]
+		 session[:saved_items].each do |x|
+		 @saved_items << Furniture.find(x)
+		 end
+		end
 	end
 	def index
 		street_name = params[:street_name]
@@ -25,4 +33,6 @@ class UnitsController < ApplicationController
 	end
 
 end
+
+
 
