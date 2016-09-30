@@ -1,13 +1,11 @@
 // Place all the styles related to the Units controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// @font-face {
-// 	font-family: "Proxima Nova";
-// 	src: url("ProximaNova-Light.otf");
-// 	src: url("ProximaNova-Reg.otf");
-// 	src: url("ProximaNova-Sbold.otf");
-// }
-
+.body {
+font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+};
 
 // .Home_Page {
 // 	background-image: url("Home_Page.jpeg");
@@ -34,22 +32,13 @@
 
 // }
 
-// .Home_Form {
-// 	margin-top: 100px;
-// 	margin-left: 450px;
-// 	margin-right: 300px;
-// 	font-size: 30px;
-// 	font-family: "Proxima Nova"
-// }
+.Home_Form {
+	margin-top: 50px;
+	font-size: 30px;
 
-// .Search_Button {
-// 	margin-top: 50px;
-// 	margin-left: 520px;
-// 	margin-right: 300px;
-// 	font-size: 20px;
-// 	font-family: "Proxima Nova";
-// 	background-color: white;
-// }
+}
+
+
 
 // #floorplan-target {
 // 	height: 600px;

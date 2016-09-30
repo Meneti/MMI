@@ -1,5 +1,6 @@
 class UnitsController < ApplicationController
 	def home
+		@current_floor_id = session[:my_floorplan].inspect
 	end
 	def show
 		@unit = Unit.find_by(id: params[:id])

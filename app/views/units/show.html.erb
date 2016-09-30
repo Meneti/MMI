@@ -25,15 +25,21 @@
 </div>
 
 <div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)">
-	<% @the_selected_furnitures.each do |x| %>
-		<img src="<%=x.image%>" class="furnitures">  
+	<% @the_selected_furnitures.each_with_index do |x, index| %>
+
+
+		
+		<img src="<%=x.image%>" class="piece<%=index%>">  
 		<style>
-		 .furnitures{
+		 .piece<%=index%>{
+		 	position: absolute;
 		 	top: <%=x.top%>;
 		 	left: <%=x.left%>;
-	
 		}
 		</style>
+
+
+
 	<%end%>
 
 	<!-- Loop over unit's saved furnitures -->
