@@ -6,7 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 unit1 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 2003, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
-
+unit2 = Unit.create!(unit_category: "apartment", street_name: "Brickell Av.", street_number: 1050, unit_number: 1001, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Brickell1050.png")
+unit3 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1016, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit4 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1005, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit5 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 2040, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit6 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1516, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit7 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1205, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit8 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 2104, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit9 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1109, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
+unit10 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1801, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
 
 
 # --Couch--
@@ -58,7 +66,28 @@ ArmchairIkea3= Furniture.create!(category: "armchair", lenght: 41.125, width: 39
 ArmchairIkea4= Furniture.create!(category: "armchair", lenght: 26.75, width: 32.25 , store: "Ikea", price: 109, color: "White", store_image: "/images/Armchair4_Ikea_poang-chair-white__0364367_PE547513_S4.JPG"),
 ArmchairIkea5= Furniture.create!(category: "armchair", lenght: 30.75, width: 33.5 , store: "Ikea", price: 279, color: "Grey", store_image: "/images/armchair5_Ikea_mellby-chair-gray__0405491_PE574691_S4.JPG"),
 
+# --Dining-Table-
+
+DiningTable1= Furniture.create!(category: "dinner-table", lenght: 29.125, width: 29.125 , store: "Ikea", price: 69, color: "White", store_image: "/images/DinnerTable1_Ikea_lerhamn-table__0238243_PE377691_S4.JPG"),
+DiningTable2= Furniture.create!(category: "dinner-table", lenght: 61, width: 34.25 , store: "Ikea", price: 329, color: "Black", store_image: "/images/DinnerTable2_Ikea_ingatorp-extendable-table-black__0251847_PE390706_S4.JPG"),
+DiningTable3= Furniture.create!(category: "dinner-table", lenght: 86.625, width: 39.125 , store: "Ikea", price: 699, color: "Brown", store_image: "/images/DinnerTable3_Ikeamorbylanga-table-brown__0364486_PE548340_S4.JPG"),
+DiningTable4= Furniture.create!(category: "dinner-table", lenght: 49.25, width: 33.5 , store: "Ikea", price: 299, color: "Silver", store_image: "/images/DinnerTable4_Ikea_glivarp-extendable-table-white__0149674_PE311851_S4.JPG"),
+DiningTable5= Furniture.create!(category: "dinner-table", lenght: 70.875, width: 39.125 , store: "Ikea", price: 199, color: "Black", store_image: "/images/DinnerTable5_Ikea_bjursta-extendable-table-black__67535_PE181365_S4.JPG"),
+
+# --Chair-
+
+Chair1= Furniture.create!(category: "chair", lenght: 21.25, width: 22.625 , store: "Ikea", price: 99, color: "White", store_image: "/images/Chair1_Ikea_henriksdal-chair-beige__0108411_PE258165_S4.JPG"),
+Chair2= Furniture.create!(category: "chair", lenght: 16.25, width: 20.5 , store: "Ikea", price: 49, color: "Brown", store_image: "/images/Chair2_ikea_ingolf-chair__0238365_PE377893_S4.JPG"),
+Chair3= Furniture.create!(category: "chair", lenght: 16.5, width: 19.25 , store: "Ikea", price: 29, color: "Black", store_image: "/images/Chair3_Ikea_stefan-chair-black__0122106_PE278491_S4.JPG"),
+Chair4= Furniture.create!(category: "chair", lenght: 29.125, width: 19.625 , store: "Ikea", price: 59, color: "White", store_image: "/images/Chair4_Ikea_gamleby-chair-gray__0292758_PE425389_S4.JPG"),
+Chair5= Furniture.create!(category: "chair", lenght: 18.5, width: 20.125 , store: "Ikea", price: 79, color: "Red", store_image: "/images/Chair5_Ikea_norraryd-chair-red__0418689_PE575725_S4.JPG")
+
+# --Bed-
+
+Bed1= Furniture.create!(category: "bed", lenght: 83.875, width: 65.75 , store: "Ikea", price: 249, color: "White", store_image: "/images/Bed1_Ikeahemnes-bed-frame__0252128_PE390850_S4.JPG"),
+Bed2= Furniture.create!(category: "bed", lenght: 83.125, width: 66.125 , store: "Ikea", price: 399, color: "Brown", store_image: "/images/Bed2_Ikea_malm-high-bed-frame-storage-boxes__0416866_PE577783_S4.JPG"),
+Bed3= Furniture.create!(category: "bed", lenght: 83.125, width: 43.125 , store: "Ikea", price: 229, color: "White", store_image: "/images/Bed3_Ikea_malm-bed-frame-high-white__0173791_PE328445_S4.JPG"),
+Bed4= Furniture.create!(category: "bed", lenght: 79.125, width: 43.75 , store: "Ikea", price: 179, color: "White", store_image: "/images/Bed4_Ikea_hemnes-bed-frame__0428675_PE583669_S4.JPG"),
+Bed5= Furniture.create!(category: "bed", lenght: 73.375, width: 41 , store: "Ikea", price: 627, color: "White", store_image: "/images/Be5_Ikea_hemnes-daybed-with-drawers-mattresses-white__0352910_PE538649_S4.JPG")
 
 
-
-furniture7 = Furniture.create!(category: "dinner-table", lenght: 46.5, width: 29.5 , store: "Ikea", price: 139, color: "Black", store_image: "/images/Dining2_norden-extendable-table__0206573_PE360691_S4")

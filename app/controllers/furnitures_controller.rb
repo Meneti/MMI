@@ -39,12 +39,6 @@ class FurnituresController < ApplicationController
 
 	def selected_items
 		@furniture_list = self.all_furniture
-
-  		# total_price= 0
-  # 		
-		# furniture = Furniture.find(params[:furniture_id])
-		# @selected_items.push(furniture)
-		# @selected_items.save
 		render :selected_items
 	end
 

@@ -1,6 +1,21 @@
-<p class= "Title"> Here is your floorplan. Choose the furniture categories to start planning your layout:</p>
+<style>
+	#div2 {
+		background-image: url("<%= @unit.floorplan %>");
+		height: 740px;
+		background-repeat: no-repeat;
+	}
 
-<div class= "Categories">
+	.draggable-thing {
+		position: absolute;
+	}
+</style>
+
+<h3> Floor Plan </h3>
+
+
+<p class= "Title" > Here is your floorplan. Choose the furniture categories to start planning your layout:</p>
+
+<div class= "Categories" data-id="<%=@unit.id%>" >
 	<button><a href="/furnitures/category/couch">Couch</a></button>
 	<button><a href="/furnitures/category/armchair">Armchair</a></button>
 	<button><a href="/furnitures/category/center-table">Side Table</a></button>
@@ -9,79 +24,89 @@
 	<button><a href="/furnitures/category/bed">Bed</a></button>
 </div>
 
-<style>
-	#div2 {
-		background-image: url("<%= @unit.floorplan %>");
-	}
+<div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<% @the_selected_furnitures.each do |x| %>
+		<img src="<%=x.image%>" class="furnitures">  
+		<style>
+		 .furnitures{
+		 	top: <%=x.top%>;
+		 	left: <%=x.left%>;
+	
+		}
+		</style>
+	<%end%>
 
-	.draggable-thing {
-		position: absolute;
-	}
-</style>
+	<!-- Loop over unit's saved furnitures -->
 
-<div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)"> </div> <br>
+</div> <br>
+
+<button class ="js-save-layout"> Save Layout </button>
+
 <p class= "Selected_items_scaled"> Drag and Drop the items you selected </p>
 
 <div id= "div1">
 	<% if @saved_items.length != nil%>
-		<% @saved_items.each_with_index do |x, index| %> 
+		<% @saved_items.each_with_index do |x, index| %>
 			<div id="#{index}" ondrop="drop(event)" ondragover="allowDrop(event)">
-			  <img src="<%=x.scaled_image%>" draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" >
+			  <img src="<%=x.scaled_image%>"
+			  		draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" data-furniture-id="<%= x.id %>"/>
 			</div>
 		<% end %>
-<%end%>
+	<%end%>
 </div>
-
-<!-- <form method="" action=""> -->
-	<!--
-	<input type="hidden" name="coordinates[][furniture_id]" value="5">
-	<input type="hidden" name="coordinates[][top]" value="127">
-	<input type="hidden" name="coordinates[][left]" value="458">
-	-->
-<!-- 
-	<button> Save </button>
-</form> -->
 
 
 <script>
+	
+var data
+var furniture 
+var saved_coordinates = {};
+
+	function allowDrop(ev) {
+	    ev.preventDefault();
+	};
+
+	function drag(ev) {
+	    ev.dataTransfer.setData("image", ev.target.id);
+	};
+
+	function drop(ev) {
+	    ev.preventDefault();
+	    data = ev.dataTransfer.getData("image");
+	     furniture = document.getElementById(data);
+	    ev.target.appendChild(furniture);
+
+	    furniture.style.top = ev.clientY + "px";
+	    furniture.style.left = ev.clientX + "px";
+	   
 
 
+		saved_coordinates[data] = { style_top: furniture.style.top, style_left: furniture.style.left, furniture_id: furniture.dataset.furnitureId }
 
+		console.log(furniture.style.top );
+	    
+		};
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
+		function saveLayout() {
+	    	var apiData = { unit_id: $('.Categories').data("id"), furnitures: saved_coordinates };
 
-function drag(ev) {
-    ev.dataTransfer.setData("image", ev.target.id);
-}
+	    	console.log(apiData);
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("image");
-    var furniture = document.getElementById(data);
-    ev.target.appendChild(furniture);
+		if(saved_coordinates != null){ 
+	    $.ajax({
+			data: apiData,
+			method: "POST",
+			url: "/furniture_location",
+			success: notifyUser
+			});
 
-    furniture.style.top = ev.clientY + "px";
-    furniture.style.left = ev.clientX + "px";
-    console.log(furniture);
-}
+		};
 
-// var saved_coordinates = {
-// 	coordinates: [
-// 		{ furniture_id: <%= @furniture_id %>, top: ev.clientY + "px", left: ev.clientX + "px" },
-// 	]
-// }
+		function notifyUser () {
+			console.log("it worked");
+		}
+	};
 
-// $.ajax({
-// 	data: saved_coordinates,
-// 	method: "GET",
-// 	url: ,
-// 	success: saveLayout
-// })
-
-// function saveLayout() {
-// 	console.log("Layout Saved")
-
-// }
+$(".js-save-layout").on("click", saveLayout);
+	
 </script>
