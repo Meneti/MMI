@@ -1,20 +1,24 @@
-<h3 class= "Show_Title">Details page:</h3>
+<h3 class="Page-description"> Details </h3>
 
-<div class="Furniture_details">	
+<br>
+
+	<div class= "attributes">
+ 		<p> Brand: <%=@furniture.store%> </p>
+	 	<p> Price: $ <%=@furniture.price%> </p>
+	 	<p> Color: <%=@furniture.color%> </p>
+	 	<p> Width: <%=@furniture.width%>" </p>
+	 	<p> Length: <%=@furniture.lenght%>" </p>
+	
+<br>
 
 <%= form_for @furniture do |f| %>
         <%= f.hidden_field :furniture_id, value: @furniture.id %>
-        <%= f.submit "Select Item" %>
+        <%= f.submit "Select Item" %> 
 <% end %> 
 
-			<p> <img src =<%=@furniture.store_image%> </p>
-	<div class= "Furniture_description">
- 		<p> Brand: <%=@furniture.store%> </p>
-	 	<p> Price $:<%=@furniture.price%> </p>
-	 	<p> Color: <%=@furniture.color%> </p>
-	 	<p> Width: <%=@furniture.width%> </p>
-	 	<p> Length: <%=@furniture.lenght%> </p>
-	 </div>
+</div>
+			<div class="image-deatil"> <img src =<%=@furniture.store_image%> height=600px </div>
+
 	 	
 
 </div>

@@ -7,12 +7,31 @@ font-family: sans-serif;
       -ms-text-size-adjust: 100%;
 };
 
-// .Home_Page {
-// 	background-image: url("Home_Page.jpeg");
-// 	background-repeat: no-repeat;
-// 	background-size: 1500px 1000px;
+.header {
+	background-image: url("stylish-orange-bedroom-interior-design-bedroom-interior-design-ideas-house-design-ideas.jpg");
+	background-repeat: no-repeat;
+	background-size: 1500px 1000px;
+	color: #4b4b4b;
+	font-size: 20px;
+}
 
-// }
+
+.Page-description {
+	color: #e68b2a;
+	font-size: 45px;
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+.sub {
+
+	color: #e68b2a;
+	font-size: 20px;
+	margin-left: 30px;
+
+}
+
+
 // // 
 // // 	margin-top: 100px;
 // // 	margin-left: 200px;
@@ -35,6 +54,7 @@ font-family: sans-serif;
 .Home_Form {
 	margin-top: 50px;
 	font-size: 30px;
+	opacity: 0.7;
 
 }
 

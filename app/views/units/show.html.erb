@@ -3,6 +3,8 @@
 		background-image: url("<%= @unit.floorplan %>");
 		height: 740px;
 		background-repeat: no-repeat;
+		margin-left: 20%;
+		margin-top: 0%;
 	}
 
 	.draggable-thing {
@@ -10,25 +12,30 @@
 	}
 </style>
 
-<h3> Floor Plan </h3>
+<h3 class="Page-description" > Layout </h3>
 
-
-<p class= "Title" > Here is your floorplan. Choose the furniture categories to start planning your layout:</p>
+<!-- 
+<p class= "Title" > Here is your floor plan. Choose the furniture categories to start planning your layout:</p> -->
 
 <div class= "Categories" data-id="<%=@unit.id%>" >
-	<button><a href="/furnitures/category/couch">Couch</a></button>
-	<button><a href="/furnitures/category/armchair">Armchair</a></button>
-	<button><a href="/furnitures/category/center-table">Side Table</a></button>
-	<button><a href="/furnitures/category/dinner-table">Dinner Table</a></button>
-	<button><a href="/furnitures/category/chair">Chair</a></button>
-	<button><a href="/furnitures/category/bed">Bed</a></button>
+	<br>
+	<br>
+	<p class= "sub">Categories</p>
+	<div class="col-md-3"> 
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/couch">Couch</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/armchair">Armchair</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/center-table">Side Table</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/dinner-table">Dinner Table</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/chair">Chair</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/bed">Bed</a></button> 
 </div>
+</div>
+
 
 <div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)">
 	<% @the_selected_furnitures.each_with_index do |x, index| %>
 
 
-		
 		<img src="<%=x.image%>" class="piece<%=index%>">  
 		<style>
 		 .piece<%=index%>{
@@ -39,12 +46,10 @@
 		</style>
 
 
-
 	<%end%>
 
-	<!-- Loop over unit's saved furnitures -->
 
-</div> <br>
+</div> 
 
 <button class ="js-save-layout"> Save Layout </button>
 

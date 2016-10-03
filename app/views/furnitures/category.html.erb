@@ -1,19 +1,19 @@
 
 
 
-<h3>Select furniture: </h3>
+<h3 class="Page-description">Furniture selection</h3>
 
 
-<div class= "Categories">
-<button><a href="/furnitures/category/couch">Couch</a></button>
-<button><a href="/furnitures/category/armchair">Armchair</a></button>
-<button><a href="/furnitures/category/center-table">Side Table</a></button>
-<button><a href="/furnitures/category/dinner-table">Dinner Table</a></button>
-<button><a href="/furnitures/category/chair">Chair</a></button>
-<button><a href="/furnitures/category/bed">Bed</a></button>
-<ul>
+<div class= Categories>
+<button class="btn btn-lg btn-light"><a href="/furnitures/category/couch">Couch</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/armchair">Armchair</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/center-table">Side Table</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/dinner-table">Dinner Table</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/chair">Chair</a></button> <br>
+	<button class="btn btn-lg btn-light"><a href="/furnitures/category/bed">Bed</a></button> 
+</div>
 
-<form class= "Filter">
+<!-- <form class= "Filter">
 		<p>Filter by Store :</p>
 		<label for="store"> Ikea </label>
         <input type="checkbox" name="store[]" value="Ikea">
@@ -41,7 +41,7 @@
         
         <button> Filter </button>
 </form>
-
+ -->
 <!-- <div class= "Filter">
 		<p>Filter by Price :</p>
 		
@@ -52,13 +52,14 @@
 
 	<% @list.each do |furniture| %>
 
-
+<div class= "selection">
 	<a href="/furnitures/<%=furniture.id%>">
 		<div class= "Furniture_list">
-			<img src="<%=furniture.store_image%>" height= 200px> <%=furniture.store%> -  $:<%=furniture.price%> 
+			<img src="<%=furniture.store_image%>" height= 150px> <%=furniture.store%> -  $:<%=furniture.price%> 
 		</div>
 	</a>
 
+</div>
 	
 	 	
 	
