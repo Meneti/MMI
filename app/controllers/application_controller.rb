@@ -7,5 +7,7 @@ class ApplicationController < ActionController::Base
 	# def define_variables
 	# 	@thing = "hello"
 	# end
-
+ def reset_session
+      @_request.reset_session
+    end
 end

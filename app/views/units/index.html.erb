@@ -1,8 +1,14 @@
-<h3>Those are the units that have floorplans available at this address: </h3>
 
-<ul>
+
+<h3 class="Page-description">Units </h3>
+<br>
+<br>
+<div class= "units">
+
 	<% @units.each do |unit| %>
-	<li><%= link_to unit.unit_number, unit_path(unit) %></li> 
+	<ul><%= link_to unit.unit_number, unit_path(unit) %></ul> 
 <% end %>
 
-</ul>
+
+
+</div>

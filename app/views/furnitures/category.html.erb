@@ -2,7 +2,10 @@
 
 
 <h3 class="Page-description">Furniture selection</h3>
+<br>
 
+<p class= "sub-1">Categories</p>
+<br>
 
 <div class= Categories>
 <button class="btn btn-lg btn-light"><a href="/furnitures/category/couch">Couch</a></button> <br>
@@ -51,14 +54,17 @@
 
 
 	<% @list.each do |furniture| %>
+		<div class="col-md-3">
+			<div class="row">
 
 <div class= "selection">
 	<a href="/furnitures/<%=furniture.id%>">
 		<div class= "Furniture_list">
-			<img src="<%=furniture.store_image%>" height= 150px> <%=furniture.store%> -  $:<%=furniture.price%> 
+			<img src="<%=furniture.store_image%>" height= 200px> <%=furniture.store%> / $<%=furniture.price%> 
 		</div>
 	</a>
-
+</div>
+</div>
 </div>
 	
 	 	

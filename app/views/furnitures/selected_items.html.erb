@@ -1,12 +1,21 @@
 <h3 class="Page-description"> Saved Items </h3>
+<br>
+<br>
 
-
+<div class= "cart-list">
 <% if @furniture_list%>
   <% @furniture_list.each do |item| %>
-    <li>
+    <ul>
       <%= link_to item.category, furniture_path(item) %>
-       - <%= item.store %> - <%= item.color %> - $<%= item.price %>
-    </li>
+       - <%= item.store %> - <%= item.color %> -  $<%= item.price %> <img src= <%= item.store_image %> height = 100px>
+    </ul>
   <% end %>
 <% end%>
-</ul>
+</div>
+
+<br>
+<div class= "total">
+		<% if session[:total_price] %>
+      <div class="total"><strong>Total: $<%= session[:total_price] %></strong>
+      <% end %>
+  </div>

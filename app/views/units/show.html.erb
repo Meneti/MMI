@@ -1,10 +1,10 @@
 <style>
 	#div2 {
 		background-image: url("<%= @unit.floorplan %>");
-		height: 740px;
+		height: 600px;
 		background-repeat: no-repeat;
 		margin-left: 20%;
-		margin-top: 0%;
+		margin-top: 50px
 	}
 
 	.draggable-thing {
@@ -17,11 +17,11 @@
 <!-- 
 <p class= "Title" > Here is your floor plan. Choose the furniture categories to start planning your layout:</p> -->
 
-<div class= "Categories" data-id="<%=@unit.id%>" >
+<div class= "col-md-3" data-id="<%=@unit.id%>" >
 	<br>
 	<br>
 	<p class= "sub">Categories</p>
-	<div class="col-md-3"> 
+	<br>
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/couch">Couch</a></button> <br>
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/armchair">Armchair</a></button> <br>
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/center-table">Side Table</a></button> <br>
@@ -29,7 +29,7 @@
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/chair">Chair</a></button> <br>
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/bed">Bed</a></button> 
 </div>
-</div>
+
 
 
 <div id= "div2" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -47,21 +47,26 @@
 
 
 	<%end%>
-
-
 </div> 
+
 
 <button class ="js-save-layout"> Save Layout </button>
 
-<p class= "Selected_items_scaled"> Drag and Drop the items you selected </p>
+<p> Drag and Drop the items you selected </p>
 
-<div id= "div1">
+
+
+<div id= "div1" class="Categories">
 	<% if @saved_items.length != nil%>
 		<% @saved_items.each_with_index do |x, index| %>
+		 <img src="/images/SPACE.png" 
 			<div id="#{index}" ondrop="drop(event)" ondragover="allowDrop(event)">
-			  <img src="<%=x.scaled_image%>"
-			  		draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" data-furniture-id="<%= x.id %>"/>
+			  <img src="<%=x.scaled_image%>"  img src="/images/SPACE.png" 
+			  <draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" data-furniture-id="<%= x.id %>"> 
+		<img src="/images/SPACE.png" 
+		
 			</div>
+		
 		<% end %>
 	<%end%>
 </div>
