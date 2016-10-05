@@ -6,9 +6,12 @@
 <% if @furniture_list%>
   <% @furniture_list.each do |item| %>
     <ul>
-      <%= link_to item.category, furniture_path(item) %>
-       - <%= item.store %> - <%= item.color %> -  $<%= item.price %> <img src= <%= item.store_image %> height = 100px>
-    </ul>
+      <img src= <%= item.store_image %> height = 80px> <%= link_to item.category, furniture_path(item) %> 
+       - <%= item.store %> - <%= item.color %> -  $<%= item.price %> 
+       <br>
+   
+    <%= link_to "Remove", furnitures_selected_items_show_path, method: "destroy" %>
+     </ul>
   <% end %>
 <% end%>
 </div>
@@ -19,3 +22,8 @@
       <div class="total"><strong>Total: $<%= session[:total_price] %></strong>
       <% end %>
   </div>
+
+
+
+ 
+

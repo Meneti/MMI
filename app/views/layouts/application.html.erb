@@ -10,6 +10,13 @@
 
   <body>
 
+
+
+     <%if session[:my_floorplan] %>
+     <div class="btn btn-light btn-lg pull-right toggle">
+     <a href='/units/session/end'> End Session </a></div>
+     <% end %>
+
     <div class="btn btn-light btn-lg pull-right toggle"><a href="/">Home</a></div>
 
       <% if session[:total_price] %>
@@ -26,6 +33,28 @@
     <div class="btn btn-light btn-lg pull-right toggle">
      <a href='/units/<%=session[:my_floorplan]%>'> My Floor Plan </a></div>
      <% end %>
+
+    
+   
+
+
+     <div class="btn btn-light btn-lg pull-right toggle">
+       <%if user_signed_in? %>
+    <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
+     <% else %>
+    <%= link_to('Sign Up', new_user_registration_path)  %> 
+     <% end %>
+   </div>
+
+     <div class="btn btn-light btn-lg pull-right toggle">
+       <%if user_signed_in? %>
+     <p > <%= current_user.name %>  </p>
+   
+     <% else %>
+    <%= link_to('Login', new_user_session_path)  %> 
+     <% end %>
+   </div>
+
 
 
  

@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+user1 = User.create!(name: "Meneti", email: "me@home.com", password: "MmDd1234", password_confirmation: "MmDd1234")
+
+
 unit1 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 2003, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")
 unit2 = Unit.create!(unit_category: "apartment", street_name: "Brickell Av.", street_number: 1050, unit_number: 1001, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Brickell1050.png")
 unit3 = Unit.create!(unit_category: "apartment", street_name: "Claughton Island Drive", street_number: 770, unit_number: 1016, city: "Miami", state: "FL", zip_code: "33131", floorplan: "/images/Floorplan1-ClaughtonIslandDr2003_740x547.png")

@@ -53,6 +53,11 @@ class FurnituresController < ApplicationController
 		return furniture_list
 	end
 
+	def destroy
+   		 the_furniture = furniture_list.find(params[:furniture_id])
+   		 the_furniture.destroy
+
+  	end
 
 end
 

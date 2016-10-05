@@ -2,9 +2,14 @@ class UnitsController < ApplicationController
 	def home
 		@current_floor_id = session[:my_floorplan].inspect
 	end
+	
 	def show
 		@unit = Unit.find_by(id: params[:id])
+		if current_user
+		@the_selected_furnitures = FurnitureUnit.where(unit_id: @unit.id).where(user_id: current_user.id) 
+		else
 		@the_selected_furnitures = FurnitureUnit.where(unit_id: @unit.id)
+		end
 		 session[:my_floorplan] ||= @unit.id
 		 (session[:all_floorplans] ||= []) << @unit.id
 		 @saved_items = []

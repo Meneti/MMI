@@ -14,11 +14,10 @@
 
 <h3 class="Page-description" > Layout </h3>
 
-<!-- 
-<p class= "Title" > Here is your floor plan. Choose the furniture categories to start planning your layout:</p> -->
 
-<div class= "col-md-3" data-id="<%=@unit.id%>" >
-	<br>
+<div class="col-md-3">
+	<div class= "Categories" data-id="<%=@unit.id%>" data-user-id="<%= current_user.id if user_signed_in? %>"> 
+		<br>
 	<br>
 	<p class= "sub">Categories</p>
 	<br>
@@ -29,6 +28,7 @@
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/chair">Chair</a></button> <br>
 	<button class="btn btn-lg btn-light"><a href="/furnitures/category/bed">Bed</a></button> 
 </div>
+</div>
 
 
 
@@ -36,7 +36,7 @@
 	<% @the_selected_furnitures.each_with_index do |x, index| %>
 
 
-		<img src="<%=x.image%>" class="piece<%=index%>">  
+		<img src="<%=x.image%>" class="piece<%=index%>" draggable="true" class="draggable-thing" ondragstart="drag(event)" id="furniture-unit-<%= x.id %>" data-furniture_unit_id="<%= x.id %>">  
 		<style>
 		 .piece<%=index%>{
 		 	position: absolute;
@@ -56,13 +56,13 @@
 
 
 
-<div id= "div1" class="Categories">
+<div id= "div1">
 	<% if @saved_items.length != nil%>
 		<% @saved_items.each_with_index do |x, index| %>
 		 <img src="/images/SPACE.png" 
 			<div id="#{index}" ondrop="drop(event)" ondragover="allowDrop(event)">
-			  <img src="<%=x.scaled_image%>"  img src="/images/SPACE.png" 
-			  <draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" data-furniture-id="<%= x.id %>"> 
+			  <img src="<%=x.scaled_image%>"
+			  draggable="true" class="draggable-thing" ondragstart="drag(event)" id="<%= index + 100 %>" data-furniture_id="<%= x.id %>"> 
 		<img src="/images/SPACE.png" 
 		
 			</div>
@@ -77,6 +77,8 @@
 var data
 var furniture 
 var saved_coordinates = {};
+var furniture_id 
+var furniture_unit_id
 
 	function allowDrop(ev) {
 	    ev.preventDefault();
@@ -94,17 +96,24 @@ var saved_coordinates = {};
 
 	    furniture.style.top = ev.clientY + "px";
 	    furniture.style.left = ev.clientX + "px";
+
 	   
+	    furniture_id = $(furniture).data("furniture_id")
+		furniture_unit_id = $(furniture).data("furniture_unit_id")
 
-
-		saved_coordinates[data] = { style_top: furniture.style.top, style_left: furniture.style.left, furniture_id: furniture.dataset.furnitureId }
-
-		console.log(furniture.style.top );
-	    
+		if (furniture_id != undefined) {
+			saved_coordinates[data] = { style_top: furniture.style.top, style_left: furniture.style.left, furniture_id: furniture_id } 
+		};
+		if (furniture_unit_id != undefined) {
+			saved_coordinates[data] = { style_top: furniture.style.top, style_left: furniture.style.left, furniture_unit_id: furniture_unit_id } 
 		};
 
+		console.log(saved_coordinates );
+	    
+	};
+
 		function saveLayout() {
-	    	var apiData = { unit_id: $('.Categories').data("id"), furnitures: saved_coordinates };
+	    	var apiData = { unit_id: $('.Categories').data("id"), furnitures: saved_coordinates, user_id:$('.Categories').data("user-id")  };
 
 	    	console.log(apiData);
 
