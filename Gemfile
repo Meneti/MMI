@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails12_factor', group: :production
+gem 'rails_12factor', group: :production
 
 gem "devise"
 gem 'activerecord-session_store'
